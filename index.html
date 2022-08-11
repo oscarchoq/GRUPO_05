@@ -1,0 +1,224 @@
+<html>
+    <title>GRUPO-05</title>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <!-- JS dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap 4 dependency -->
+    <script src="https://unpkg.com/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- bootbox code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
+    <script src="https://github.com/makeusabrew/bootbox/releases/download/v5.5.2/bootbox.locales.min.js"></script>
+
+
+    <link rel="stylesheet" href="lib/style.css">
+    <script type="module">
+
+        //LISTAS SIMPLEMENTE ENLAZADAS
+        import {agregar_inicio, agregar_final, agregar_antes_X, agregar_despues_X} from './lib/lstSimpLig/index.js';
+        import {eliminar_inicio, eliminar_final, eliminar_X, eliminar_antes_X, eliminar_despues_X} from './lib/lstSimpLig/index.js';
+
+        window.agregar_inicio = agregar_inicio;
+        window.agregar_final = agregar_final;
+        window.agregar_antes_X = agregar_antes_X;
+        window.agregar_despues_X = agregar_despues_X;
+        window.eliminar_inicio = eliminar_inicio;
+        window.eliminar_final = eliminar_final;
+        window.eliminar_X = eliminar_X;
+        window.eliminar_antes_X = eliminar_antes_X;
+        window.eliminar_despues_X = eliminar_despues_X;
+
+        //LISTAS CIRCULARES SIMPLEMENTE ENLAZADAS
+        import {agregar_inicio_lstCir, agregar_final_lstCir, agregar_antes_X_lstCir, agregar_despues_X_lstCir} from './lib/lstCirSimpLig/index.js';
+        import {eliminar_inicio_lstCir, eliminar_final_lstCir, eliminar_X_lstCir, eliminar_antes_X_lstCir, eliminar_despues_X_lstCir} from './lib/lstCirSimpLig/index.js';
+
+        window.agregar_inicio_lstCir = agregar_inicio_lstCir;
+        window.agregar_final_lstCir = agregar_final_lstCir;
+        window.agregar_antes_X_lstCir = agregar_antes_X_lstCir;
+        window.agregar_despues_X_lstCir = agregar_despues_X_lstCir;
+        window.eliminar_inicio_lstCir = eliminar_inicio_lstCir;
+        window.eliminar_final_lstCir = eliminar_final_lstCir;
+        window.eliminar_X_lstCir = eliminar_X_lstCir;
+        window.eliminar_antes_X_lstCir = eliminar_antes_X_lstCir;
+        window.eliminar_despues_X_lstCir = eliminar_despues_X_lstCir;
+
+        //EVENTOS DE MENU PARA MANEJAR HISTORIAL
+        import {clickListaSimplementeEnlazada,clickListaCirsularSimplementeEnlazada,clickListaDoblementeEnlazada} from './lib/index.js';
+        window.clickListaSimplementeEnlazada=clickListaSimplementeEnlazada;
+        window.clickListaCirsularSimplementeEnlazada=clickListaCirsularSimplementeEnlazada;
+        window.clickListaDoblementeEnlazada=clickListaDoblementeEnlazada;
+
+    </script>
+
+</head>
+
+<body>
+
+    <!--MENU PRINCIPAL-->
+    <div id="principal">
+        
+        <div class="container">
+            <div class="row text-center" style="margin-bottom: 50px;">
+                <div class="col">
+                    <h1 class="titulo">ALGORITMOS DE OSVALDO CAIRO</h1>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-xs-12 col-sm-12 col-md-4 buttonleftmenu">
+                        <button type="button" class="btn btn-outline-secondary" onclick="clickListaSimplementeEnlazada()">LISTA SIMPLEMENTE LIGADA</button>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 md-auto">
+                        <button type="button" class="btn btn-outline-secondary" onclick="clickListaCirsularSimplementeEnlazada()">LISTA CIRCULAR SIMPLEMENTE LIGADA</button>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 buttonrightmenu">
+                        <button type="button" class="btn btn-outline-secondary" onclick="clickListaDoblementeEnlazada()">LISTA DOBLEMENTE LIGADA</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!--LISTAS SIMPLEMENTE ENLAZADAS-->
+    <div id="vista1" style="display: none">
+
+        <div class="col" style="margin-top:20px">
+            <h1 class="titulo">LISTA SIMPLEMENTE ENLAZADA</h1> 
+        </div>
+
+        <div style="margin: 10px">   
+            <div class="col text-center">
+                <canvas id="tutorial" width="700" height="150"></canvas>
+            </div>
+        
+            <div class="contanier">
+
+                <h1 class="subtitulo">INSERCION EN LISTAS</h1>
+                <div class="col text-center">
+                    <button type="button" class="btn btn-outline-secondary" onclick="agregar_inicio()">INSERTA INICIO</button>
+				    <button type="button" class="btn btn-outline-secondary" onclick="agregar_final()">INSERTA FINAL</button>
+				    <button type="button" class="btn btn-outline-secondary" onclick="agregar_antes_X()">INSERTA ANTES DE X</button>
+				    <button type="button" class="btn btn-outline-secondary" onclick="agregar_despues_X()">INSERTA DESPUES DE X</button>
+                </div>
+                <h1 class="subtitulo">ELIMINACION EN LISTAS</h1>
+                <div class="col text-center">
+                    <button type="button" class="btn btn-outline-secondary" onclick="eliminar_inicio()">ELIMINA INICIO</button>
+				    <button type="button" class="btn btn-outline-secondary" onclick="eliminar_final()">ELIMINA FINAL</button>
+				    <button type="button" class="btn btn-outline-secondary" onclick="eliminar_X()">ELIMINA UN NODO X</button>
+				    <button type="button" class="btn btn-outline-secondary" onclick="eliminar_antes_X()">ELIMINA ANTES DE X</button>
+                    <button type="button" class="btn btn-outline-secondary" onclick="eliminar_despues_X()">ELIMINA DESPUES DE X</button>
+                </div>
+
+                <div class="col text-center">
+                    <br><br>
+                    <button type="button" class="btn btn-outline-secondary" onclick="window.history.back()">VOLVER AL MENU</button>
+                </div>
+            </div>
+        </div>
+
+    </div> 
+
+    <!--LISTAS CIRCULARES SIMPLEMENTE ENLAZADAS-->
+    <div id="vista2" style="display:none">
+
+        <div class="col" style="margin-top:20px">
+            <h1 class="titulo">LISTA CIRCULAR SIMPLEMENTE ENLAZADA</h1> 
+        </div>
+
+        <div style="margin: 10px">   
+            <div class="col text-center">
+                <canvas id="tutorial2" width="700" height="150"></canvas>
+            </div>
+        
+            <div class="contanier">
+
+                <h1 class="subtitulo">INSERCION EN LISTAS</h1>
+                <div class="col text-center">
+                    <button type="button" class="btn btn-outline-secondary" onclick="agregar_inicio_lstCir()">INSERTA INICIO</button>
+				    <button type="button" class="btn btn-outline-secondary" onclick="agregar_final_lstCir()">INSERTA FINAL</button>
+				    <button type="button" class="btn btn-outline-secondary" onclick="agregar_antes_X_lstCir()">INSERTA ANTES DE X</button>
+				    <button type="button" class="btn btn-outline-secondary" onclick="agregar_despues_X_lstCir()">INSERTA DESPUES DE X</button>
+                </div>
+                <h1 class="subtitulo">ELIMINACION EN LISTAS</h1>
+                <div class="col text-center">
+                    <button type="button" class="btn btn-outline-secondary" onclick="eliminar_inicio_lstCir()">ELIMINA INICIO</button>
+				    <button type="button" class="btn btn-outline-secondary" onclick="eliminar_final_lstCir()">ELIMINA FINAL</button>
+				    <button type="button" class="btn btn-outline-secondary" onclick="eliminar_X_lstCir()">ELIMINA UN NODO X</button>
+				    <button type="button" class="btn btn-outline-secondary" onclick="eliminar_antes_X_lstCir()">ELIMINA ANTES DE X</button>
+                    <button type="button" class="btn btn-outline-secondary" onclick="eliminar_despues_X_lstCir()">ELIMINA DESPUES DE X</button>
+                </div>
+
+                <div class="col text-center">
+                    <br><br>
+                    <button type="button" class="btn btn-outline-secondary" onclick="window.history.back()">VOLVER AL MENU</button>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    <!--LISTAS DOBLEMENTE ENLAZADAS-->
+    <div id="vista3" style="display:none">
+
+        <div id="principal">
+            <div class="container">
+                <div class="row text-center" style="margin-bottom: 50px;">
+                    <div class="col">
+                        <h1 class="titulo">EN DESARROLLO ...</h1>
+                    </div>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn btn-outline-secondary" onclick="window.history.back()">VOLVER AL MENU</button>
+                </div>
+            </div>
+        </div>
+        
+    <!--
+        <div class="container">
+            <div class="row text-center">
+                <div class="col" style="margin-top:20px">
+                    <h4>LISTA DOBLEMENTE LIGADA</h4> 
+                </div>
+            </div>
+        </div>
+    
+        <div style="margin: 10px">   
+            <canvas id="tutorial3"></canvas>
+        </div>
+    
+        <div  class="container">
+            <div class="row text-center">
+                <div class="col-xs-12 col-sm-12 col-md-6 ">
+                        <button onclick="insertar_al_inicio_lstDobLig()">INSERTAR AL INICIO</button>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                        <button onclick="insertar_despues_x_lstDobLig()">INSERTAR DESPUES DE X</button>
+                </div>
+            </div>
+            <div class="row text-center">
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <button onclick="insertar_antes_x_lstDobLig()">INSERTAR ANTES DE X</button>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <button onclick="elimina_inicio_lstDobLig()">ELIMINAR AL INICIO</button>
+                    </div>
+            </div>
+            <div class="row text-center">
+                <div class="col">
+                    <button onclick="window.history.back()">MENU</button>
+                </div>
+            </div>
+        </div>
+        -->
+    </div>
+
+</body>
+
+</html>
